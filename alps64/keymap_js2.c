@@ -3,72 +3,72 @@
 const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
     /* 0: qwerty
      * ,-----------------------------------------------------------.
-     * |Esc|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|   \   |
+     * |Esc|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =| \ | ` |
      * |-----------------------------------------------------------|
      * |Tab  |  Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P|  [|  ]|Bspc |
      * |-----------------------------------------------------------|
      * |Ctrl  |  A|  S|  D|  F|  G|  H|  J|  K|  L|  ;|  '|Enter   |
      * |-----------------------------------------------------------|
-     * | LShift |  Z|  X|  C|  V|  B|  N|  M|  ,|  .|  /| RShift   |
+     * | LShift |  Z|  X|  C|  V|  B|  N|  M|  ,|  .|  /|RShft|Fn0 |
      * |-----------------------------------------------------------'
      * |Ctrl|Alt |Cmd |         Space              |Cmd |Alt | Fn0 |
      * `-----------------------------------------------------------'
      */
-    [0] = KEYMAP_AEK( \
-        ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSLS, \
+    [0] = KEYMAP_AEK_HHKB( \
+        ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSLS, GRV, \
         TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC, \
         LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   FN2, QUOT,ENT,  \
-        LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,RSFT, \
-        LCTL,LALT,LGUI,          SPC,                     RGUI,RALT,FN0 ),
+        LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,RSFT,FN0,  \
+        LCAP,LALT,LGUI,          SPC,                     RGUI,RALT,FN0 ),
 
     /* Keymap 1: colemak */
-    [1] = KEYMAP_AEK(
-        ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSLS, \
+    [1] = KEYMAP_AEK_HHKB(
+        ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSLS, GRV, \
         TAB, Q,   W,   F,   P,   G,   J,   L,   U,   Y,   SCLN,LBRC,RBRC,BSPC, \
-        LCTL,A,   R,   S,   T,   D,   H,   N,   E,   I,   O,   QUOT,ENT,  \
-        LSFT,Z,   X,   C,   V,   B,   K,   M,   COMM,DOT, SLSH,RSFT, \
-        LCTL,LALT,LGUI,          SPC,                     RGUI,RALT,FN0),
+        TRNS,A,   R,   S,   T,   D,   H,   N,   E,   I,   O,   QUOT,ENT,  \
+        TRNS,Z,   X,   C,   V,   B,   K,   M,   COMM,DOT, SLSH,TRNS,FN0,  \
+        LCAP,TRNS,TRNS,          SPC,                     TRNS,TRNS,TRNS),
 
     /* HHKB mode[HHKB Fn]
      * ,-----------------------------------------------------------.
-     * | ` | F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|   `   |
+     * | ` | F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12| \ | ` |
      * |-----------------------------------------------------------|
      * |Caps |   |WAK|SLP|   |FN1|   |   |Psc|Slk|Pus|Up |Ins|Del  |
      * |-----------------------------------------------------------|
      * |Contro|VoD|VoU|Mut|   |   |  *|  /|Hom|PgU|Lef|Rig|Enter   |
      * |-----------------------------------------------------------|
-     * |Shift   |   |   |   |   |BTL|  +|  -|End|PgD|Dow|Shift     |
+     * |Shift   |   |   |   |   |BTL|  +|  -|End|PgD|Dow|Shift |   |
      * |-----------------------------------------------------------|
      * |Ctrl |Alt |Cmd  |       Space            | Cmd  |Alt |     |
      * `-----------------------------------------------------------'
      */
-    [2] = KEYMAP_AEK( \
-        GRV, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, GRV, \
+    [2] = KEYMAP_AEK_HHKB( \
+        GRV, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, BSLS, GRV, \
         CAPS,NO,  WAKE,SLEP, NO, FN1, NO,  NO,  PSCR,SLCK,PAUS,UP,  INS, DEL, \
-        LCTL,VOLD,VOLU,MUTE,EJCT,NO,  PAST,PSLS,HOME,PGUP,LEFT,RGHT,PENT, \
-        LSFT,FN5, FN6, NO,  NO,  BTLD,PPLS,PMNS,END, PGDN,DOWN,RSFT, \
-        LCTL,LALT,LGUI,          TRNS,                         RGUI,RALT,TRNS),
+        TRNS,VOLD,VOLU,MUTE,EJCT,NO,  PAST,PSLS,HOME,PGUP,LEFT,RGHT,PENT, \
+        TRNS,FN5, FN6, NO,  NO,  BTLD,PPLS,PMNS,END, PGDN,DOWN,TRNS,TRNS, \
+        NO,  TRNS,TRNS,          TRNS,                         TRNS,TRNS,TRNS),
 
     /* Layer 3: mouse and arrow keys(IJKL) - semicolon activated
      * ,-----------------------------------------------------------.
-     * |Esc| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|  Del  |
+     * |Esc| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|  | Del|
      * |-----------------------------------------------------------|
      * |Tab  |MwL|MwD|McU|MwU|MwR|   |   |PgU|Up |PgD|   |   |     |
      * |-----------------------------------------------------------|
      * |Contro|Mb3|McL|McD|McR|   |   |Lft|Dow|Rgt|Fn2|   |Return  |
      * |-----------------------------------------------------------|
-     * |Shift   |Mb3|Mb2|Mb1|Mb4|Mb5|   |   |Fn3|Fn4|   |Shift     |
+     * |Shift   |Mb3|Mb2|Mb1|Mb4|Mb5|   |   |Fn3|Fn4|   |Shift |   |
      * `-----------------------------------------------------------'
      *      |Gui |Alt  |          Mb1          |     |   |
      *      `--------------------------------------------'
      * Mc: Mouse Cursor / Mb: Mouse Button / Mw: Mouse Wheel
      */
-    KEYMAP_AEK( \
-           GRV, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, DEL, \
+    KEYMAP_AEK_HHKB( \
+           GRV, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, NO, DEL, \
            TAB, WH_L,WH_D,MS_U,WH_U,WH_R,NO,  PGUP,UP,  PGDN,NO,  NO,  NO,  NO, \
-           LCTL,BTN3,MS_L,MS_D,MS_R,NO,  NO,  LEFT,DOWN,RGHT,FN2, NO,  ENT, \
-           LSFT,BTN3,BTN2,BTN1,BTN4,BTN5,  NO,  NO,  FN3, FN4, NO,  RSFT, \
-           LCTL,LGUI,LALT,          BTN1,               TRNS,TRNS,TRNS),
+           TRNS,BTN3,MS_L,MS_D,MS_R,NO,  NO,  LEFT,DOWN,RGHT,FN2, NO,  ENT,  \
+           TRNS,BTN3,BTN2,BTN1,BTN4,BTN5,NO,  NO,  FN3, FN4, NO,  RSFT,TRNS, \
+           NO,  TRNS,TRNS,          BTN1,               TRNS,TRNS,TRNS),
 
 };
 
