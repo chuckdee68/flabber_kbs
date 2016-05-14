@@ -10,8 +10,8 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   /* missing 60% keys layer */
   [1] = KEYMAP(
-    ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   LBRC,RBRC, \
-    TRNS,F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  GRV, QUOT,     ENT,  \
+    ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL,  \
+    TRNS,F1,  F2,  F3,  F4,  F5,  F6,  F7,  GRV, QUOT,     LBRC,RBRC, \
     TRNS,CAPS,VOLU,VOLD,MUTE,NO,  NO,  NO,  NO,  SLSH,     TRNS,TRNS, \
          TRNS, TRNS,    TRNS,      TRNS,        TRNS, TRNS,TRNS       \
   ),
