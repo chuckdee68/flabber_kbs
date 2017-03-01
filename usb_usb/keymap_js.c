@@ -1,40 +1,55 @@
 #include "keymap_common.h"
 
 const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
-    /* Layer 0: Default Layer
-     * ,---.   ,---------------. ,---------------. ,---------------. ,-----------.
-     * |Esc|   |F1 |F2 |F3 |F4 | |F5 |F6 |F7 |F8 | |F9 |F10|F11|F12| |PrS|ScL|Pau|
-     * `---'   `---------------' `---------------' `---------------' `-----------'
-     * ,-----------------------------------------------------------. ,-----------. ,---------------.
-     * |  `|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  ^|    Bsp| |Ins|Hom|PgU| |NmL|  /|  *|  -|
-     * |-----------------------------------------------------------| |-----------| |---------------|
-     * |Tab  |  Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P|  [|  ]| Retn| |Del|End|PgD| |  7|  8|  9|  +|
-     * |------------------------------------------------------`    | `-----------' |-----------|   |
-     * |CapsL |  A|  S|  D|  F|  G|  H|  J|  K|  L|  ;|  '|  #|    |               |  4|  5|  6|   |
-     * |-----------------------------------------------------------|     ,---.     |---------------|
-     * |Shft|\  |  Z|  X|  C|  V|  B|  N|  M|  ,|  ,|  /| RO|Shift |     |Up |     |  1|  2|  3|Ent|
-     * |-----------------------------------------------------------| ,-----------. |-----------|   |
-     * |Ctl|Gui|Alt|           Space       |HNK|KNA|Alt|Gui|App|Ctl| |Lef|Dow|Rig| |      0|  .|   |
-     * `-----------------------------------------------------------' `-----------' `---------------'
+    /* 0: plain
+     *         ,---------------. ,---------------. ,---------------.
+     *         |F13|F14|F15|F16| |F17|F18|F19|F20| |F21|F22|F23|F24|
+     * ,---.   |---------------| |---------------| |---------------| ,-----------. ,---------------. ,-------.
+     * |Esc|   |F1 |F2 |F3 |F4 | |F5 |F6 |F7 |F8 | |F9 |F10|F11|F12| |PrS|FN1|Pau| |VDn|VUp|Mut|Pwr| | Help  |
+     * `---'   `---------------' `---------------' `---------------' `-----------' `---------------' `-------'
+     * ,-----------------------------------------------------------. ,-----------. ,---------------. ,-------.
+     * |  `|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|JPY| \ | |Ins|Hom|PgU| |NmL|  /|  *|  -| |Stp|Agn|
+     * |-----------------------------------------------------------| |-----------| |---------------| |-------|
+     * |Tab  |  Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P|  [|  ]| Bsp | |Del|End|PgD| |  7|  8|  9|  +| |Mnu|Und|
+     * |-----------------------------------------------------------| `-----------' |---------------| |-------|
+     * |CapsL |  A|  S|  D|  F|  G|  H|  J|  K|  L|  ;|  :|  #|Retn|               |  4|  5|  6|KP,| |Sel|Cpy|
+     * |-----------------------------------------------------------|     ,---.     |---------------| |-------|
+     * |Shft|  <|  Z|  X|  C|  V|  B|  N|  M|  ,|  ,|  /| RO|Shift |     |Up |     |  1|  2|  3|KP=| |Exe|Pst|
+     * |-----------------------------------------------------------| ,-----------. |---------------| |-------|
+     * |Ctl|Alt|Gui|MHEN|HNJ| Space  |H/E|HENK|KANA|Gui|Alt|Ctl|FN0| |Lef|Dow|Rig| |  0    |  .|Ent| |Fnd|Cut|
+     * `-----------------------------------------------------------' `-----------' `---------------' `-------'
      */
-    [0] = \
-    KEYMAP_ISO(
-    ESC,      F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,      PSCR,SLCK,BRK,
-    GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC,     INS, HOME,PGUP,    NLCK,PSLS,PAST,PMNS,
-    TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,ENT,      DEL, END, PGDN,    P7,  P8,  P9,  PPLS,
-    LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,NUHS,                             P4,  P5,  P6,
-    LSFT,NUBS,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,     RSFT,          UP,           P1,  P2,  P3,  PENT,
-    CAPS,LGUI,LALT,          SPC,                     RGUI,RALT,APP, FN0,      LEFT,DOWN,RGHT,    P0,       PDOT
+    KEYMAP_ALL(
+              F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24,
+    ESC,      F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,           PSCR,FN1, PAUS,    VOLD,VOLU,MUTE,PWR,     HELP,
+    GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, JYEN,BSLS,     INS, HOME,PGUP,    NLCK,PSLS,PAST,PMNS,    STOP,AGIN,
+    TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,     BSPC,     DEL, END, PGDN,    P7,  P8,  P9,  PPLS,    MENU,UNDO,
+    CAPS,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     NUHS,ENT,                         P4,  P5,  P6,  PCMM,    SLCT,COPY,
+    LSFT,NUBS,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,     RO,  RSFT,          UP,           P1,  P2,  P3,  PEQL,    EXEC,PSTE,
+    LCTL,LALT,LGUI,MHEN,HANJ,     SPC,      HAEN,HENK,KANA,RGUI,RALT,RCTL,FN0,      LEFT,DOWN,RGHT,    P0,       PDOT,PENT,    FIND,CUT
     ),
 
-    /* Layer 1: colemak */
-    [1] = KEYMAP_ISO(
-    ESC,      F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,      PSCR,SLCK,BRK,
-    GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC,     INS, HOME,PGUP,    NLCK,PSLS,PAST,PMNS,
-    TAB, Q,   W,   F,   P,   G,   J,   L,   U,   Y,   SCLN,LBRC,RBRC,ENT,      DEL, END, PGDN,    P7,  P8,  P9,  PPLS,
-    LCTL,A,   R,   S,   T,   D,   H,   N,   E,   I,   O,   QUOT,NUHS,                             P4,  P5,  P6,
-    LSFT,NUBS,Z,   X,   C,   V,   B,   K,   M,   COMM,DOT, SLSH,     RSFT,          UP,           P1,  P2,  P3,  PENT,
-    CAPS,LGUI,LALT,          SPC,                     RGUI,RALT,APP, FN0,      LEFT,DOWN,RGHT,    P0,       PDOT
+    /* Layer 1: Colemak http://colemak.com
+     * ,-----------------------------------------------------------.
+     * |  `|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|Backspa|
+     * |-----------------------------------------------------------|
+     * |Tab  |  Q|  W|  F|  P|  G|  J|  L|  U|  Y|  ;|  [|  ]|    \|
+     * |-----------------------------------------------------------|
+     * |BackSp|  A|  R|  S|  T|  D|  H|  N|  E|  I|  O|  '|Return  |
+     * |-----------------------------------------------------------|
+     * |Shift   |  Z|  X|  C|  V|  B|  K|  M|  ,|  ,|  /|Shift     |
+     * |-----------------------------------------------------------|
+     * |Ctrl |Gui |Alt |         Space         |Alt |Gui |Menu|Ctrl|
+     * `----------------------------------------------------------'
+     */
+    KEYMAP_ALL(
+              F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24,
+    ESC,      F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,           PSCR,TRNS,PAUS,    VOLD,VOLU,MUTE,PWR,     HELP,
+    GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, JYEN,BSPC,     INS, HOME,PGUP,    NLCK,PSLS,PAST,PMNS,    STOP,AGIN,
+    TAB, Q,   W,   F,   P,   G,   J,   L,   U,   Y,   SCLN,LBRC,RBRC,     BSLS,     DEL, END, PGDN,    P7,  P8,  P9,  PPLS,    MENU,UNDO,
+    BSPC,A,   R,   S,   T,   D,   H,   N,   E,   I,   O,   QUOT,     NUHS,ENT,                         P4,  P5,  P6,  PCMM,    SLCT,COPY,
+    LSFT,NUBS,Z,   X,   C,   V,   B,   K,   M,   COMM,DOT, SLSH,     RO,  RSFT,          UP,           P1,  P2,  P3,  PEQL,    EXEC,PSTE,
+    LCTL,LGUI,LALT,MHEN,HANJ,     SPC,      HAEN,HENK,KANA,RALT,RGUI,APP, RCTL,     LEFT,DOWN,RGHT,    P0,       PDOT,PENT,    FIND,CUT
     ),
 
     /* Layer 2: HHKB mode[HHKB Fn]
@@ -45,19 +60,20 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      * |-----------------------------------------------------------|
      * |Contro|VoD|VoU|Mut|   |   |  *|  /|Hom|PgU|Lef|Rig|Enter   |
      * |-----------------------------------------------------------|
-     * |Shift   |   |   |   |   |   |  +|  -|End|PgD|Dow|Shift |   |
+     * |Shift   |FN5|FN6|   |   |   |  +|  -|End|PgD|Dow|Shift |   |
      * `-----------------------------------------------------------'
      *       |Gui|Alt  |         Space         |Alt  |Gui|
      *       `-------------------------------------------'
      */
     [2] = \
-    KEYMAP_ISO(
-    ESC,      F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,      PSCR,SLCK,BRK,
-    GRV, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, DEL,      INS, HOME,PGUP,    NLCK,PSLS,PAST,PMNS,
-    CAPS,NO,  WAKE,SLEP,NO,  FN1, NO,  NO,  PSCR,SLCK,PAUS, UP,  NO, ENT,      DEL, END, PGDN,    P7,  P8,  P9,  PPLS,
-    LCTL,VOLD,VOLU,MUTE,NO,  NO,  PAST,PSLS,HOME,PGUP,LEFT,RGHT,RBRC,                             P4,  P5,  P6,
-    LSFT,NUBS,FN5, FN6, NO,  NO,  NO,  PPLS,PMNS,END, PGDN,DOWN,     RSFT,          UP,           P1,  P2,  P3,  PENT,
-    LCTL,LALT,LGUI,          SPC,                     RGUI,RALT,APP, TRNS,     LEFT,DOWN,RGHT,    P0,       PDOT
+    KEYMAP_ALL(
+              F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24,
+    ESC,      F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,           PSCR,TRNS,PAUS,    VOLD,VOLU,MUTE,PWR,     HELP,
+    GRV, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, JYEN,DEL,      INS, HOME,PGUP,    NLCK,PSLS,PAST,PMNS,    STOP,AGIN,
+    CAPS,NO,  WAKE,SLEP,NO,  NO,  NO,  NO,  PSCR,SLCK,PAUS,UP,  NO,       BSPC,     DEL, END, PGDN,    P7,  P8,  P9,  PPLS,    MENU,UNDO,
+    LCTL,VOLD,VOLU,MUTE,NO,  NO,  PAST,PSLS,HOME,PGUP,LEFT,RGHT,     NUHS,ENT,                         P4,  P5,  P6,  PCMM,    SLCT,COPY,
+    LSFT,NUBS,FN5, FN6, NO,  NO,  NO,  PPLS,PMNS,END, PGDN,DOWN,     RO,  RSFT,          UP,           P1,  P2,  P3,  PEQL,    EXEC,PSTE,
+    LCTL,LALT,LGUI,MHEN,HANJ,     SPC,      HAEN,HENK,KANA,RGUI,RALT,APP, TRNS,     LEFT,DOWN,RGHT,    P0,       PDOT,PENT,    FIND,CUT
     ),
 
     /* Layer 3: mouse and arrow keys(IJKL) - semicolon activated
@@ -74,13 +90,15 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      *      `--------------------------------------------'
      * Mc: Mouse Cursor / Mb: Mouse Button / Mw: Mouse Wheel
      */
-    [3] = KEYMAP_ISO(
-    ESC,      F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,      PSCR,SLCK,BRK,
-    GRV, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, DEL,      INS, HOME,PGUP,    NLCK,PSLS,PAST,PMNS,
-    TAB, WH_L,WH_D,MS_U,WH_U,WH_R,NO,  PGUP,UP,  PGDN,NO,  NO,  NO,  ENT,      DEL, END, PGDN,    P7,  P8,  P9,  PPLS,
-    LCTL,BTN3,MS_L,MS_D,MS_R,NO,  NO,  LEFT,DOWN,RGHT,FN2, NO,  NO,                               P4,  P5,  P6,
-    LSFT,BTN3,BTN2,BTN1,BTN4,BTN5,NO,  NO,  FN3, FN4, NO,  NO,       RSFT,          UP,           P1,  P2,  P3,  PENT,
-    LCTL,LGUI,LALT,            BTN1,                  TRNS,TRNS,TRNS,TRNS,     LEFT,DOWN,RGHT,    P0,       PDOT
+    [3] = \
+    KEYMAP_ALL(
+              F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24,
+    ESC,      F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,            PSCR,TRNS,BRK,     VOLD,VOLU,MUTE,PWR,     HELP,
+    GRV, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, TRNS,DEL,       INS, HOME,PGUP,    NLCK,PSLS,PAST,PMNS,    STOP,AGIN,
+    TAB, WH_L,WH_D,MS_U,WH_U,WH_R,NO,  PGUP,UP,  PGDN,NO,  NO,  NO,       BSPC,      DEL, END, PGDN,    P7,  P8,  P9,  PPLS,    MENU,UNDO,
+    LCTL,BTN3,MS_L,MS_D,MS_R,NO,  NO,  LEFT,DOWN,RGHT,FN2, NO,       NO,  ENT,                          P4,  P5,  P6,  PCMM,    SLCT,COPY,
+    LSFT,BTN3,BTN2,BTN1,BTN4,BTN5,NO,  NO,  FN3, FN4, NO,  NO,       RO,  RSFT,           UP,           P1,  P2,  P3,  PEQL,    EXEC,PSTE,
+    LCTL,LGUI,LALT,TRNS,TRNS,     BTN1,     TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,      LEFT,DOWN,RGHT,    P0,       PDOT,PENT,    FIND,CUT
     ),
 
 };
