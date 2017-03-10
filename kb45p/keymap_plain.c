@@ -24,7 +24,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
-const uint16_t fn_actions[] = {
+const action_t fn_actions[] = {
   [0] = ACTION_LAYER_MOMENTARY(1),
   [1] = ACTION_LAYER_MOMENTARY(2),
 };
